@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_KR, Gaegu } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
+import Script from 'next/script';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSerifKR = Noto_Serif_KR({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-geist-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const gaegu = Gaegu({
+  weight: "700",
   subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      
+        <body
+        className={`${notoSerifKR.variable} ${gaegu.variable} antialiased`}
       >
         {children}
+        <Toaster />
+        {/* 카카오 SDK 스크립트 */}
+        <Script
+        src="https://developers.kakao.com/sdk/js/kakao.js"
+        strategy="afterInteractive"
+        />
       </body>
     </html>
   );
