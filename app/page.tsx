@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button'; // Shadcn Button 컴포넌트 예시 (필요한 컴포넌트 import)
@@ -20,11 +20,49 @@ import { AccountSection } from '@/components/ui/account-section';
 const HomePage: React.FC = () => {
   // 컴포넌트 상단에 상태 추가
   const [visibleImages, setVisibleImages] = useState(6);
+  useEffect(() => {
+    // Kakao SDK 초기화 (componentDidMount 시점에 실행)
+    if (!window.Kakao) return; // Kakao SDK가 로드되지 않았을 경우 early return
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY); // 발급받은 JavaScript 키로 초기화
+  }, []);
+
+  
 
   const handleUrlCopy = () => {
     navigator.clipboard.writeText(window.location.href)
     toast("Copied !")
   }
+  
+
+  const handleShareKakao = () => {
+    if (!window.Kakao) {
+      navigator.clipboard.writeText(window.location.href)
+      toast.warning("🚧 공사중 🚧")
+      return
+    }; // Kakao SDK가 로드되지 않았을 경우 early return
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '최혁 💍 이예린 결혼합니다', // 공유할 제목 (청첩장 제목)
+        description: '2025년 09월 14일, 아름다운 날 결혼합니다.', // 공유할 설명
+        imageUrl: `${window.location.origin}/first.jpg`, // 대표 이미지 주소 (썸네일)
+        link: {
+          mobileWebUrl: window.location.href, // 모바일 웹 URL (청첩장 주소)
+          webUrl: window.location.href, // PC 웹 URL (청첩장 주소)
+        },
+      },
+      buttons: [
+        {
+          title: '청첩장 확인하기', // 버튼 제목
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+      ],
+    });
+  };
+
 
   return (
     <>
@@ -89,7 +127,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                 <Image 
-                  src="/images/gallery-image3.jpg"
+                  src="/images/gallery-image3.jpeg"
                   alt="신부 이미지" 
                   width={128}
                   height={128}
@@ -266,6 +304,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
               <Button className='w-full mb-4 bg-yellow-300 text-gray-700'
+              onClick={() => handleShareKakao()}
               >카카오톡으로 청첩장 전하기<MessageSquareShare/></Button>
               <Button className='w-full bg-white text-gray-700'
               onClick={() => handleUrlCopy()}
