@@ -29,8 +29,8 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>최혁 & 이예린 결혼합니다</title>
-        <meta name="description" content="최혁님과 이예린님의 결혼식에 초대합니다." />
+        <title>최혁 💍 이예린 결혼합니다</title>
+        <meta name="description" content="최혁 💍 이예린 결혼식에 초대합니다." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         {/* 모바일 최적화 viewport 설정 */}
       </Head>
@@ -38,7 +38,6 @@ const HomePage: React.FC = () => {
       <div className="font-sans antialiased text-gray-900 bg-gray-100 min-h-screen">
         {/* 전체 배경 및 기본 스타일 */}
 
-        {/* 1. Hero 섹션 (메인 이미지, 신랑/신부 이름, 날짜) */}
         {/* 1. Hero 섹션 (메인 이미지, 신랑/신부 이름, 날짜) */}
         <section className="relative py-5 md:py-32 bg-cover bg-center" style={{ backgroundImage: `url('/images/hero-image.jpg')` }}>
           {/* 배경 오버레이 (흰색 20% 투명도) */}
@@ -76,7 +75,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                 <Image 
-                  src="/mun.png" 
+                  src="/images/gallery-image2.jpg" 
                   alt="신랑 이미지" 
                   width={128}
                   height={128}
@@ -90,7 +89,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                 <Image 
-                  src="/sticker.jpeg" 
+                  src="/images/gallery-image3.jpg"
                   alt="신부 이미지" 
                   width={128}
                   height={128}
@@ -131,16 +130,16 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 mb-8">
             {[
               '/images/gallery-image1.jpg',
-              '/images/gallery-image2.png',
+              '/images/gallery-image2.jpg',
               '/images/gallery-image3.jpeg',
               '/images/gallery-image1.jpg',
-              '/images/gallery-image2.png',
+              '/images/gallery-image2.jpg',
               '/images/gallery-image3.jpeg',
               '/images/gallery-image1.jpg',
-              '/images/gallery-image2.png',
+              '/images/gallery-image2.jpg',
               '/images/gallery-image3.jpeg',
               '/images/gallery-image1.jpg',
-              '/images/gallery-image2.png',
+              '/images/gallery-image2.jpg',
               '/images/gallery-image3.jpeg'
             ].slice(0, visibleImages).map((src, index) => (
               <Dialog key={index}>
@@ -249,9 +248,7 @@ const HomePage: React.FC = () => {
             </Button>
           </div> */} {/* 필요에 따라 축하 메시지 남기기 기능 추가 (Form, Backend 연동 등) */}
         </section>
-
         <Separator /> {/* 구분선 */}
-
         {/* 6. 계좌 정보 */}
         <AccountSection />
         <Separator /> {/* 구분선 */}
@@ -276,10 +273,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-
-        <Separator /> {/* 구분선 */}
-
-
 
         <Separator /> {/* 구분선 */}
 
