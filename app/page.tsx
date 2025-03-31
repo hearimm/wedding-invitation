@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button'; // Shadcn Button 컴포넌트 예시 (필요한 컴포넌트 import)
 import { Separator } from '@/components/ui/separator'; // Shadcn Separator 컴포넌트 예시
-import { Copy, MessageSquareShare, ChevronDown } from "lucide-react"
+import { Copy, MessageSquareShare, ChevronDown, ExternalLink } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/dialog"
 
 import { toast } from "sonner"
-import { AccountSection } from '@/components/ui/account-section';
+import { AccountSection } from '@/components/common/account-section';
+import Link from 'next/link';
 
 
 const HomePage: React.FC = () => {
@@ -26,14 +27,17 @@ const HomePage: React.FC = () => {
     window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY); // 발급받은 JavaScript 키로 초기화
   }, []);
 
-  
-
   const handleUrlCopy = () => {
     navigator.clipboard.writeText(window.location.href)
     toast("Copied !")
   }
-  
 
+  const handleAddrCopy = () => {
+    const addr = "경기도 수원시 팔달구 월드컵로 310 (구. 우만동 209번지)"
+    navigator.clipboard.writeText(addr)
+    toast(addr + " Address Copied !")
+  }
+  
   const handleShareKakao = () => {
     if (!window.Kakao) {
       navigator.clipboard.writeText(window.location.href)
@@ -120,7 +124,7 @@ const HomePage: React.FC = () => {
                   className="object-cover w-full h-full" 
                 />
               </div>
-              <h3 className="text-xl font-semibold">신랑 최혁</h3>
+              <h3 className="text-xl font-semibold">🤵 신랑 최혁</h3>
               <p className="text-gray-500">최옥남의 장남</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
@@ -134,8 +138,8 @@ const HomePage: React.FC = () => {
                   className="object-cover w-full h-full" 
                 />
               </div>
-              <h3 className="text-xl font-semibold">신부 이예린</h3>
-              <p className="text-gray-500">이승기, 선미용의 장녀</p>
+              <h3 className="text-xl font-semibold">👰‍♀️ 신부 이예린</h3>
+              <p className="text-gray-500">이승기 · 선미용의 장녀</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
           </div>
@@ -152,10 +156,46 @@ const HomePage: React.FC = () => {
             {/* <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
               지도 영역 (나중에 추가)
             </div> */}
+            <Link href={"https://wiconvention.co.kr/location"} passHref target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="w-full mb-4">
+                오시는 길
+                <ExternalLink />
+              </Button>
+            </Link>
+
+            <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
+              주소 복사
+              <Copy />
+            </Button>
+
+            <div className='flex justify-center mb-4'>
+            <Link href={"https://kko.kakao.com/NaE2tABAU_"} passHref target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="mx-2">
+                카카오 지도
+                <ExternalLink />
+              </Button>
+            </Link>
+
+            <Link href={"https://naver.me/5z5I6K2Q"} passHref target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="mx-2">
+                네이버 지도
+                <ExternalLink />
+              </Button>
+            </Link>
+            </div>
+            
+
+            
+
+            
+
             <p className="text-gray-500 mb-2">오시는 길:</p>
             <p className="text-gray-700">
-              [지하철] O호선 OOO역 O번 출구 도보 5분<br />
-              [버스] OOO 방면 버스 OOO 정류장 하차
+              🚘 자가용 이용 시<br />
+              수원월드컵경기장 4주차장 또는 7주차장<br />
+              <br />
+              🚍 광역버스 이용 시<br />
+              수원월드컵경기장, 동성중학교 하차
             </p>
           </div>
         </section>
@@ -192,22 +232,23 @@ const HomePage: React.FC = () => {
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
                   <DialogTitle></DialogTitle>
-                  <div className="flex justify-center">
+                  <div className="relative w-full h-[70vh] flex justify-center">
                     <Image 
                       src={src} 
-                      alt={`확대 이미지 ${index + 1}`} 
-                      className="max-h-[80vh] object-contain"
+                      alt={`확대 이미지 ${index + 1}`}
+                      layout="fill"
+                      objectFit="contain"
+                      className="rounded-md"
                     />
                   </div>
                 </DialogContent>
               </Dialog>
             ))}
           </div>
-          
+
           {/* Show More 버튼 */}
           {visibleImages < 12 && (
             <div className="flex justify-center">
-              
               <Button 
                 variant="outline" 
                 onClick={() => setVisibleImages(prev => prev + 6)}
@@ -218,7 +259,6 @@ const HomePage: React.FC = () => {
             </div>
           )}
         </section>
-
         <Separator /> {/* 구분선 */}
 
         {/* 5. RSVP 섹션 추가 */}

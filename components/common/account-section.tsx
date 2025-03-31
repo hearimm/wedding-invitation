@@ -13,29 +13,30 @@ import { toast } from "sonner"
 
 
 interface Account {
+  label: string
   name: string
   bank: string
   number: string
 }
 
 const groomAccounts: Account[] = [
-  { name: "신랑", bank: "카카오뱅크", number: "3333-0850-34377" },
-  { name: "신랑 어머니", bank: "카카오뱅크", number: "3333-0850-34377" }
+  { label: "신랑", name:'최혁',  bank: "카카오뱅크", number: "3333-0850-34377" },
+  { label: "어머니", name:'최옥남', bank: "카카오뱅크", number: "xxxx-xxxx-xxxxx" }
 ]
 
 const brideAccounts: Account[] = [
-    { name: "신부", bank: "카카오뱅크", number: "3333-0663-04405" },
-    { name: "신부 아버지", bank: "농협", number: "352-1858-358543" },
-    { name: "신부 어머니", bank: "농협", number: "352-1858-358543" }
+    { label: "신부", name:'이예린', bank: "카카오뱅크", number: "3333-0663-04405" },
+    { label: "아버지", name:'이승기', bank: "농협", number: "xxxx-xxxx-xxxxx" },
   ]
 
 export function AccountSection() {
-  const [isGroomOpen, setIsGroomOpen] = React.useState(true)
-  const [isBrideOpen, setIsBrideOpen] = React.useState(true)
+  const [isGroomOpen, setIsGroomOpen] = React.useState(false)
+  const [isBrideOpen, setIsBrideOpen] = React.useState(false)
 
   const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text.replace(/-/g, ''))
-    toast("Copied !")
+    const copiedText = text.replace(/-/g, '');
+    navigator.clipboard.writeText(copiedText)
+    toast(copiedText + " Copied !")
   }
 
   return (
@@ -75,26 +76,25 @@ export function AccountSection() {
           
           <CollapsibleContent className="px-4 md:px-5 pb-4 md:pb-5">
             {groomAccounts.map((account) => (
-              <div key={account.name} className="mt-4 space-y-3">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-sm text-gray-500">{account.name}</p>
-                    <p className="text-base font-medium text-gray-900">
-                      {account.bank}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-base text-gray-700">
-                      {account.number}
-                    </p>
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      onClick={() => handleCopy(account.bank + ' ' + account.number)}
-                    >
-                      <Copy className="h-4 w-4 text-primary" />
-                    </Button>
-                  </div>
+              <div key={account.name} className="mt-4">
+                {/* 라벨 이름 */}
+                <p className="text-sm text-gray-500">{account.label} <span className="font-bold text-gray-700">{account.name}</span></p>
+
+                {/* 은행명, 계좌번호, 복사버튼 */}
+                <div className="flex items-center justify-between mt-2">
+                  {/* 은행명 */}
+                  <p className="text-base font-medium text-gray-900">
+                    {account.bank} {account.number}
+                  </p>
+
+                  {/* 복사버튼 */}
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => handleCopy(account.bank + ' ' + account.number)}
+                  >
+                    <Copy className="h-4 w-4 text-primary" />
+                  </Button>
                 </div>
               </div>
             ))}
@@ -122,27 +122,26 @@ export function AccountSection() {
           </CollapsibleTrigger>
           
           <CollapsibleContent className="px-4 md:px-5 pb-4 md:pb-5">
-            {brideAccounts.map((account) => (
-              <div key={account.name} className="mt-4 space-y-3">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-sm text-gray-500">{account.name}</p>
-                    <p className="text-base font-medium text-gray-900">
-                      {account.bank}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-base text-gray-700">
-                      {account.number}
-                    </p>
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      onClick={() => handleCopy(account.number)}
-                    >
-                      <Copy className="h-4 w-4 text-primary" />
-                    </Button>
-                  </div>
+          {brideAccounts.map((account) => (
+              <div key={account.name} className="mt-4">
+                {/* 라벨 이름 */}
+                <p className="text-sm text-gray-500">{account.label} <span className="font-bold text-gray-700">{account.name}</span></p>
+
+                {/* 은행명, 계좌번호, 복사버튼 */}
+                <div className="flex items-center justify-between mt-2">
+                  {/* 은행명 */}
+                  <p className="text-base font-medium text-gray-900">
+                    {account.bank} {account.number}
+                  </p>
+
+                  {/* 복사버튼 */}
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => handleCopy(account.bank + ' ' + account.number)}
+                  >
+                    <Copy className="h-4 w-4 text-primary" />
+                  </Button>
                 </div>
               </div>
             ))}
