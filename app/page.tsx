@@ -82,6 +82,7 @@ const HomePage: React.FC = () => {
 
         {/* 1. Hero 섹션 (메인 이미지, 신랑/신부 이름, 날짜) */}
         <section className="relative py-5 md:py-32 bg-cover bg-center" style={{ backgroundImage: `url('/images/hero-image.jpg')` }}>
+
           {/* 배경 오버레이 (흰색 20% 투명도) */}
           <div className="absolute inset-0 bg-white"></div>
           
@@ -147,47 +148,50 @@ const HomePage: React.FC = () => {
 
         <Separator /> {/* 구분선 */}
 
+
         {/* 3. 예식 정보 섹션 */}
         <section className="py-16 px-6 md:px-12">
           <h2 className="text-2xl font-bold text-center mb-8">EVENT INFO</h2>
           <div className="text-center">
+
             <p className="text-lg font-semibold mb-2">2025년 09월 14일 (일) 오후 12시 30분</p>
             <p className="text-gray-700 mb-4">수원WI컨벤션 I웨딩홀</p>
             {/* <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
               지도 영역 (나중에 추가)
             </div> */}
-            <Link href={"https://wiconvention.co.kr/location"} passHref target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="w-full mb-4">
-                오시는 길
-                <ExternalLink />
-              </Button>
-            </Link>
+            <div className="flex flex-col md:flex-row justify-center">
+              <div className="text-center">
 
-            <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
-              주소 복사
-              <Copy />
-            </Button>
+                <Link href={"https://wiconvention.co.kr/location"} passHref target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="w-full mb-4">
+                    오시는 길
+                    <ExternalLink />
+                  </Button>
+                </Link>
 
-            <div className='flex justify-center mb-4'>
-            <Link href={"https://kko.kakao.com/NaE2tABAU_"} passHref target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="mx-2">
-                카카오 지도
-                <ExternalLink />
+              <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
+                주소 복사
+                <Copy />
               </Button>
-            </Link>
 
-            <Link href={"https://naver.me/5z5I6K2Q"} passHref target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="mx-2">
-                네이버 지도
-                <ExternalLink />
-              </Button>
-            </Link>
+              </div>
             </div>
-            
 
-            
+            <div className='flex justify-center mb-4 md:flex-row md:gap-4'> {/* flex-col 제거, md:flex-row, md:gap-2 추가 */}
+              <Link href={"https://kko.kakao.com/NaE2tABAU_"} passHref target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="mx-2 bg-yellow-300 text-gray-700 hover:bg-yellow-400"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
+                  카카오 지도
+                  <ExternalLink />
+                </Button>
+              </Link>
 
-            
+              <Link href={"https://naver.me/5z5I6K2Q"} passHref target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="mx-2 text-gray-700 bg-green-400 hover:bg-green-500"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
+                  네이버 지도
+                  <ExternalLink />
+                </Button>
+              </Link>
+            </div>
 
             <p className="text-gray-500 mb-2">오시는 길:</p>
             <p className="text-gray-700">
@@ -343,10 +347,11 @@ const HomePage: React.FC = () => {
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
-              <Button className='w-full mb-4 bg-yellow-300 text-gray-700'
+              <Button className='w-full mb-4 bg-yellow-300 text-gray-700 hover:bg-yellow-400'
               onClick={() => handleShareKakao()}
               >카카오톡으로 청첩장 전하기<MessageSquareShare/></Button>
-              <Button className='w-full bg-white text-gray-700'
+              <Button variant="outline"
+              className='w-full mb-4'
               onClick={() => handleUrlCopy()}
               >청첩장 주소 복사하기<Copy/></Button>
             </div>
