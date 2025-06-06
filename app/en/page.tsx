@@ -19,45 +19,45 @@ import Link from 'next/link';
 
 const WEDDING_INFO = {
   groom: {
-    name: "최혁",
+    name: "Hyuk Choi",
     phone: "010-2256-1541",
     mother: {
-      name: "최옥남",
+      name: "Oknam Choi",
       phone: "010-xxxx-xxxx"
     }
   },
   bride: {
-    name: "이예린",
+    name: "Yerin Lee",
     phone: "010-5557-0432",
     father: {
-      name: "이승기",
+      name: "Seungki Lee",
       phone: "010-xxxx-xxxx"
     },
     mother: {
-      name: "선미용",
+      name: "Miyong Sun",
       phone: "010-xxxx-xxxx"
     }
   },
-  date: "2025년 09월 14일",
-  time: "오후 12시 30분",
-  venue: "수원WI컨벤션 I홀",
-  address: "경기도 수원시 팔달구 월드컵로 310 (구. 우만동 209번지)"
+  date: "September 14, 2025",
+  time: "12:30 PM",
+  venue: "Suwon WI Convention I Hall",
+  address: "310 World Cup-ro, Paldal-gu, Suwon-si, Gyeonggi-do (209 Wooman-dong)"
 } as const;
 
 const contactInfo = {
   groom: {
-    title: "신랑 측 연락처",
+    title: "Groom's Contact Information",
     contacts: [
-      { name: WEDDING_INFO.groom.name, relationship: "신랑", phone: WEDDING_INFO.groom.phone },
-      { name: WEDDING_INFO.groom.mother.name, relationship: "모", phone: WEDDING_INFO.groom.mother.phone },
+      { name: WEDDING_INFO.groom.name, relationship: "Groom", phone: WEDDING_INFO.groom.phone },
+      { name: WEDDING_INFO.groom.mother.name, relationship: "Mother", phone: WEDDING_INFO.groom.mother.phone },
     ],
   },
   bride: {
-    title: "신부 측 연락처",
+    title: "Bride's Contact Information",
     contacts: [
-      { name: WEDDING_INFO.bride.name, relationship: "신부", phone: WEDDING_INFO.bride.phone },
-      { name: WEDDING_INFO.bride.father.name, relationship: "부", phone: WEDDING_INFO.bride.father.phone },
-      { name: WEDDING_INFO.bride.mother.name, relationship: "모", phone: WEDDING_INFO.bride.mother.phone },
+      { name: WEDDING_INFO.bride.name, relationship: "Bride", phone: WEDDING_INFO.bride.phone },
+      { name: WEDDING_INFO.bride.father.name, relationship: "Father", phone: WEDDING_INFO.bride.father.phone },
+      { name: WEDDING_INFO.bride.mother.name, relationship: "Mother", phone: WEDDING_INFO.bride.mother.phone },
     ],
   },
 };
@@ -100,8 +100,8 @@ const HomePage: React.FC = () => {
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: '최혁 💍 이예린 결혼합니다', // 공유할 제목 (청첩장 제목)
-        description: '2025년 09월 14일, 아름다운 날 결혼합니다.', // 공유할 설명
+        title: 'Hyuk 💍 Yerin 결혼합니다', // 공유할 제목 (청첩장 제목)
+        description: 'September 14, 2025, a beautiful autumn day filled with colorful leaves.', // 공유할 설명
         imageUrl: `${window.location.origin}/first.jpg`, // 대표 이미지 주소 (썸네일)
         link: {
           mobileWebUrl: window.location.href, // 모바일 웹 URL (청첩장 주소)
@@ -124,8 +124,8 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>최혁 💍 이예린 결혼합니다</title>
-        <meta name="description" content="최혁 💍 이예린 결혼식에 초대합니다." />
+        <title>Hyuk 💍 Yerin Wedding Invitation</title>
+        <meta name="description" content="We invite you to celebrate our wedding ceremony." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         {/* 모바일 최적화 viewport 설정 */}
       </Head>
@@ -160,40 +160,39 @@ const HomePage: React.FC = () => {
         <section className="py-16 px-6 md:px-12">
           <h2 className="text-2xl font-bold text-center mb-8">INVITATION</h2>
           <p className="text-center text-lg leading-relaxed mb-8">
-            🍁곱게 물든 단풍으로 가득 찬 가을날🍁<br />
-            저희도 서로에게 물들어 <br />
-            평생 함께하고자 합니다.<br /><br />
-            서로 다른 색으로 만났지만<br />
-            앞으로 서로에게 어울리는 색이 되도록<br />
-            사랑하고 배려하며 살겠습니다. 💍
+            🍁On a beautiful autumn day filled with colorful leaves🍁<br />
+            We have decided to spend our lives together.<br /><br />
+            Though we started with different colors,<br />
+            We promise to love and care for each other,<br />
+            Becoming the perfect match for one another. 💍
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
                   src="/images/gallery-image2.jpg" 
-                  alt="신랑 이미지" 
+                  alt="Groom's image" 
                   width={128}
                   height={128}
                   className="object-cover w-full h-full" 
                 />
               </div>
-              <h3 className="text-xl font-semibold">🤵 신랑 {WEDDING_INFO.groom.name}</h3>
-              <p className="text-gray-500">{WEDDING_INFO.groom.mother.name}의 장남</p>
+              <h3 className="text-xl font-semibold">🤵 Groom {WEDDING_INFO.groom.name}</h3>
+              <p className="text-gray-500">First son of {WEDDING_INFO.groom.mother.name}</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
                   src="/images/gallery-image3.jpeg"
-                  alt="신부 이미지" 
+                  alt="Bride's image" 
                   width={128}
                   height={128}
                   className="object-cover w-full h-full" 
                 />
               </div>
-              <h3 className="text-xl font-semibold">👰‍♀️ 신부 {WEDDING_INFO.bride.name}</h3>
-              <p className="text-gray-500">{WEDDING_INFO.bride.father.name} · {WEDDING_INFO.bride.mother.name}의 장녀</p>
+              <h3 className="text-xl font-semibold">👰‍♀️ Bride {WEDDING_INFO.bride.name}</h3>
+              <p className="text-gray-500">First daughter of {WEDDING_INFO.bride.father.name} & {WEDDING_INFO.bride.mother.name}</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
           </div>
@@ -217,13 +216,13 @@ const HomePage: React.FC = () => {
 
                 <Link href={"https://wiconvention.co.kr/location"} passHref target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="w-full mb-4">
-                    오시는 길
+                    Directions
                     <ExternalLink />
                   </Button>
                 </Link>
 
               <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
-                주소 복사
+                Copy Address
                 <Copy />
               </Button>
 
@@ -233,26 +232,26 @@ const HomePage: React.FC = () => {
             <div className='flex justify-center mb-4 md:flex-row md:gap-4'> {/* flex-col 제거, md:flex-row, md:gap-2 추가 */}
               <Link href={"https://kko.kakao.com/NaE2tABAU_"} passHref target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="mx-2 bg-yellow-300 text-gray-700 hover:bg-yellow-400"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
-                  카카오 지도
+                  Kakao Map
                   <ExternalLink />
                 </Button>
               </Link>
 
               <Link href={"https://naver.me/5z5I6K2Q"} passHref target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="mx-2 text-gray-700 bg-green-400 hover:bg-green-500"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
-                  네이버 지도
+                  Naver Map
                   <ExternalLink />
                 </Button>
               </Link>
             </div>
 
-            <p className="text-gray-500 mb-2">오시는 길:</p>
+            <p className="text-gray-500 mb-2">Directions:</p>
             <p className="text-gray-700">
-              🚘 자가용 이용 시<br />
-              수원월드컵경기장 4주차장 또는 7주차장<br />
+              🚘 By Car<br />
+              Suwon World Cup Stadium Parking Lot 4 or 7<br />
               <br />
-              🚍 광역버스 이용 시<br />
-              수원월드컵경기장, 동성중학교 하차
+              🚍 By Bus<br />
+              Get off at Suwon World Cup Stadium or Dongseong Middle School
             </p>
           </div>
         </section>
@@ -323,20 +322,20 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-center mb-8">RSVP</h2>
           <div className="text-center">
             <p className="text-gray-700 mb-8">
-              참석 여부를 알려주시면<br />
-              준비에 큰 도움이 됩니다.
+              Please let us know if you can attend.<br />
+              Your response will help us prepare better.
             </p>
             
             {/* RSVP 다이얼로그 */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="default" className="bg-yellow-300 text-gray-700 hover:bg-yellow-400">
-                  참석 여부 확인하기
+                  RSVP
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl p-0">
                 <DialogTitle className="text-center p-4 border-b">
-                  참석 확인
+                  Please RSVP
                 </DialogTitle>
                 <div className="p-4">
                 <iframe
@@ -359,14 +358,14 @@ const HomePage: React.FC = () => {
 
         {/* 5. 축하 메시지 & 연락처 섹션 */}
         <section className="py-16 px-6 md:px-12">
-          <h2 className="text-2xl font-bold text-center mb-8">축하 메시지 & 연락처</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Congratulations & Contact</h2>
           <p className="text-center text-gray-700 mb-8">
-            따뜻한 마음 남겨주시면<br />
-            결혼 후에도 오래도록 간직하겠습니다.
+            Your warm wishes will be<br />
+            cherished in our hearts forever.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">신랑 측 연락처</h3>
+              <h3 className="text-lg font-semibold mb-2">Groom's Contact Information</h3>
               <div className="flex flex-col items-center gap-2">
                 {contactInfo.groom.contacts.map((contact, index) => (
                   contact.phone && contact.phone.includes('-') ? (
@@ -387,7 +386,7 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">신부 측 연락처</h3>
+              <h3 className="text-lg font-semibold mb-2">Bride's Contact Information</h3>
               <div className="flex flex-col items-center gap-2">
                 {contactInfo.bride.contacts.map((contact, index) => (
                   contact.phone && contact.phone.includes('-') ? (
@@ -420,24 +419,23 @@ const HomePage: React.FC = () => {
         <Separator /> {/* 구분선 */}
         {/* 7. 감사메시지 & 공유 섹션 */}
         <section className="py-16 px-6 md:px-12">
-          <h2 className="text-2xl font-bold text-center mb-8">감사 메시지</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Thank You Message</h2>
           <p className="text-center text-gray-700 mb-8">
-            저희 부부의 소중한 첫걸음을<br />
-            함께 축하해 주셔서 감사합니다.<br />
+            Thank you for celebrating<br />
+            the beginning of our journey together.<br />
             <br />
-            귀한 시간 내어 주신 모든 분들의<br />
-            따뜻한 마음과 축복을<br />
-            소중히 간직하며 살아가겠습니다.
+            We will cherish all the warm wishes and blessings<br />
+            from everyone who took the time to share this special moment with us.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
               <Button className='w-full mb-4 bg-yellow-300 text-gray-700 hover:bg-yellow-400'
               onClick={() => handleShareKakao()}
-              >카카오톡으로 청첩장 전하기<MessageSquareShare/></Button>
+              >Share via KakaoTalk<MessageSquareShare/></Button>
               <Button variant="outline"
               className='w-full mb-4'
               onClick={() => handleUrlCopy()}
-              >청첩장 주소 복사하기<Copy/></Button>
+              >Copy Invitation URL<Copy/></Button>
             </div>
           </div>
         </section>
