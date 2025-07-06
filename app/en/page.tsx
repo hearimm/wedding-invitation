@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: 'Hyuk 💍 Yerin 결혼합니다', // 공유할 제목 (청첩장 제목)
+        title: 'Hyuk 💍 Linda\'s Wedding Invitation', // 공유할 제목 (청첩장 제목)
         description: 'September 14, 2025, a beautiful autumn day filled with colorful leaves.', // 공유할 설명
         imageUrl: `${window.location.origin}/images/gallery-image6.jpeg`, // 대표 이미지 주소 (썸네일)
         link: {
@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Hyuk 💍 Yerin Wedding Invitation</title>
+        <title>Hyuk 💍 Linda Wedding Invitation</title>
         <meta name="description" content="We invite you to celebrate our wedding ceremony." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         {/* 모바일 최적화 viewport 설정 */}
