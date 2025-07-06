@@ -132,7 +132,7 @@ const HomePage: React.FC = () => {
         {/* 모바일 최적화 viewport 설정 */}
       </Head>
 
-      <div className="font-sans antialiased text-gray-900 bg-gray-100 min-h-screen">
+      <div className="font-sans antialiased text-gray-900 bg-green-50 min-h-screen">
         {/* 전체 배경 및 기본 스타일 */}
 
         {/* 1. Hero 섹션 (메인 이미지, 신랑/신부 이름, 날짜) */}
@@ -143,8 +143,7 @@ const HomePage: React.FC = () => {
           
           {/* 텍스트 컨테이너 (검정색 폰트) */}
           <div className="relative z-10 text-center text-black">
-            <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">We&apos;re </h1>
-            <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">getting married!</h1>
+          <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4 font-brush">We&apos;re getting married!</h1>
             <Image 
               src="/images/gallery-image6.jpeg" 
               alt="신랑&신부 이미지" 
@@ -152,7 +151,7 @@ const HomePage: React.FC = () => {
               height={300}
               className="object-cover w-full h-full" 
             />
-            <p>{WEDDING_INFO.groom.name} 💍 {WEDDING_INFO.bride.name}</p>
+            <p className='font-bold'>{WEDDING_INFO.groom.name} 💍 {WEDDING_INFO.bride.name}</p>
             <p className="text-md md:text-lg mt-2">{WEDDING_INFO.dateFormatted} {WEDDING_INFO.time}</p>
             <p className="text-md md:text-lg mt-2">{WEDDING_INFO.venue}</p>
           </div>

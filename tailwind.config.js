@@ -4,11 +4,12 @@ module.exports = {
       extend: {
         fontFamily: {
           // 기본 폰트 설정
-          sans: ['Poppins', 'sans-serif'], // 기본 폰트 변경
-          // 제목용 서체 추가
-          brush: ['Nanum Brush Script', 'cursive'],
-          // 영문 서체 별도 설정 (필요시)
-          eng: ['Great Vibes', 'cursive']
+          sans: ['var(--font-playfair)', 'var(--font-noto-serif-kr)','serif'],
+          // 제목용 서체 (영문)
+          brush: ['var(--font-great-vibes)', 'cursive'], // 영문 제목용
+          // 한글 폰트 설정
+          korean: ['var(--font-noto-serif-kr)', 'serif'], // 한글 기본 텍스트
+          'korean-title': ['var(--font-nanum-myeongjo)', 'serif'], // 한글 제목용
         },
       },
     },
