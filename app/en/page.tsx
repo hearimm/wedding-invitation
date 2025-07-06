@@ -24,7 +24,7 @@ const WEDDING_INFO = {
     phone: "+82 010-2256-1541",
     mother: {
       name: "Oknam Choi",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6880-5303"
     }
   },
   bride: {
@@ -32,11 +32,11 @@ const WEDDING_INFO = {
     phone: "+82 010-5557-0432",
     father: {
       name: "Seungki Lee",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6645-0499"
     },
     mother: {
       name: "Miyong Sun",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6413-0439"
     }
   },
   date: "20250914",
@@ -112,7 +112,7 @@ const HomePage: React.FC = () => {
       },
       buttons: [
         {
-          title: '청첩장 확인하기', // 버튼 제목
+          title: 'Click to View 💍', // 버튼 제목
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,

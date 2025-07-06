@@ -23,7 +23,7 @@ const WEDDING_INFO = {
     phone: "010-2256-1541",
     mother: {
       name: "최옥남",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6880-5303"
     }
   },
   bride: {
@@ -31,11 +31,11 @@ const WEDDING_INFO = {
     phone: "010-5557-0432",
     father: {
       name: "이승기",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6645-0499"
     },
     mother: {
       name: "선미용",
-      phone: "010-xxxx-xxxx"
+      phone: "010-6413-0439"
     }
   },
   date: "2025년 9월 14일",
