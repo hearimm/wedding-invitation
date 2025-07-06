@@ -14,9 +14,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { toast } from "sonner"
-import { AccountSection } from '@/components/common/account-section';
 import Link from 'next/link';
-import { ko } from 'date-fns/locale';
 import { format } from 'date-fns';
 import { parse } from 'date-fns/parse';
 
@@ -369,7 +367,7 @@ const HomePage: React.FC = () => {
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">Groom's Contact Information</h3>
+              <h3 className="text-lg font-semibold mb-2">Groom&apos;s Contact Information</h3>
               <div className="flex flex-col items-center gap-2">
                 {contactInfo.groom.contacts.map((contact, index) => (
                   contact.phone && contact.phone.includes('-') ? (
@@ -390,7 +388,7 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">Bride's Contact Information</h3>
+              <h3 className="text-lg font-semibold mb-2">Bride&apos;s Contact Information</h3>
               <div className="flex flex-col items-center gap-2">
                 {contactInfo.bride.contacts.map((contact, index) => (
                   contact.phone && contact.phone.includes('-') ? (
