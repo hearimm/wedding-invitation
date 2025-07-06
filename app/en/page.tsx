@@ -16,19 +16,22 @@ import {
 import { toast } from "sonner"
 import { AccountSection } from '@/components/common/account-section';
 import Link from 'next/link';
+import { ko } from 'date-fns/locale';
+import { format } from 'date-fns';
+import { parse } from 'date-fns/parse';
 
 const WEDDING_INFO = {
   groom: {
     name: "Hyuk Choi",
-    phone: "010-2256-1541",
+    phone: "+82 010-2256-1541",
     mother: {
       name: "Oknam Choi",
       phone: "010-xxxx-xxxx"
     }
   },
   bride: {
-    name: "Yerin Lee",
-    phone: "010-5557-0432",
+    name: "Linda Lee",
+    phone: "+82 010-5557-0432",
     father: {
       name: "Seungki Lee",
       phone: "010-xxxx-xxxx"
@@ -38,7 +41,8 @@ const WEDDING_INFO = {
       phone: "010-xxxx-xxxx"
     }
   },
-  date: "September 14, 2025",
+  date: "20250914",
+  dateFormatted: format(parse("20250914", "yyyyMMdd", new Date()), 'EEEE, MMM d, yyyy'),
   time: "12:30 PM",
   venue: "Suwon WI Convention I Hall",
   address: "310 World Cup-ro, Paldal-gu, Suwon-si, Gyeonggi-do (209 Wooman-dong)"
@@ -49,15 +53,15 @@ const contactInfo = {
     title: "Groom's Contact Information",
     contacts: [
       { name: WEDDING_INFO.groom.name, relationship: "Groom", phone: WEDDING_INFO.groom.phone },
-      { name: WEDDING_INFO.groom.mother.name, relationship: "Mother", phone: WEDDING_INFO.groom.mother.phone },
+      // { name: WEDDING_INFO.groom.mother.name, relationship: "Mother", phone: WEDDING_INFO.groom.mother.phone },
     ],
   },
   bride: {
     title: "Bride's Contact Information",
     contacts: [
       { name: WEDDING_INFO.bride.name, relationship: "Bride", phone: WEDDING_INFO.bride.phone },
-      { name: WEDDING_INFO.bride.father.name, relationship: "Father", phone: WEDDING_INFO.bride.father.phone },
-      { name: WEDDING_INFO.bride.mother.name, relationship: "Mother", phone: WEDDING_INFO.bride.mother.phone },
+      // { name: WEDDING_INFO.bride.father.name, relationship: "Father", phone: WEDDING_INFO.bride.father.phone },
+      // { name: WEDDING_INFO.bride.mother.name, relationship: "Mother", phone: WEDDING_INFO.bride.mother.phone },
     ],
   },
 };
@@ -102,7 +106,7 @@ const HomePage: React.FC = () => {
       content: {
         title: 'Hyuk 💍 Yerin 결혼합니다', // 공유할 제목 (청첩장 제목)
         description: 'September 14, 2025, a beautiful autumn day filled with colorful leaves.', // 공유할 설명
-        imageUrl: `${window.location.origin}/first.jpg`, // 대표 이미지 주소 (썸네일)
+        imageUrl: `${window.location.origin}/images/gallery-image6.jpeg`, // 대표 이미지 주소 (썸네일)
         link: {
           mobileWebUrl: window.location.href, // 모바일 웹 URL (청첩장 주소)
           webUrl: window.location.href, // PC 웹 URL (청첩장 주소)
@@ -144,14 +148,14 @@ const HomePage: React.FC = () => {
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">We&apos;re </h1>
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">getting married!</h1>
             <Image 
-              src="/first.jpg" 
+              src="/images/gallery-image6.jpeg" 
               alt="신랑&신부 이미지" 
               width={500}
               height={300}
               className="object-cover w-full h-full" 
             />
             <p>{WEDDING_INFO.groom.name} 💍 {WEDDING_INFO.bride.name}</p>
-            <p className="text-md md:text-lg mt-2">{WEDDING_INFO.date}, 일요일 {WEDDING_INFO.time}</p>
+            <p className="text-md md:text-lg mt-2">{WEDDING_INFO.dateFormatted} {WEDDING_INFO.time}</p>
             <p className="text-md md:text-lg mt-2">{WEDDING_INFO.venue}</p>
           </div>
         </section>
@@ -160,17 +164,17 @@ const HomePage: React.FC = () => {
         <section className="py-16 px-6 md:px-12">
           <h2 className="text-2xl font-bold text-center mb-8">INVITATION</h2>
           <p className="text-center text-lg leading-relaxed mb-8">
-            🍁On a beautiful autumn day filled with colorful leaves🍁<br />
-            We have decided to spend our lives together.<br /><br />
-            Though we started with different colors,<br />
-            We promise to love and care for each other,<br />
-            Becoming the perfect match for one another. 💍
+            🍁 On a beautiful autumn day, as the world is painted in vibrant hues, 🍁<br />
+            we celebrate the moment we choose to begin our forever.<br /><br />
+
+            Though we began as different colors,<br />
+            we now blend as one—promising to love, cherish, and create a harmony uniquely our own. 💍
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
-                  src="/images/gallery-image2.jpg" 
+                  src="/images/groom.jpeg" 
                   alt="Groom's image" 
                   width={128}
                   height={128}
@@ -178,13 +182,13 @@ const HomePage: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold">🤵 Groom {WEDDING_INFO.groom.name}</h3>
-              <p className="text-gray-500">First son of {WEDDING_INFO.groom.mother.name}</p>
+              <p className="text-gray-500">Eldest son of {WEDDING_INFO.groom.mother.name}</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
-                  src="/images/gallery-image3.jpeg"
+                  src="/images/bride.jpeg"
                   alt="Bride's image" 
                   width={128}
                   height={128}
@@ -192,7 +196,7 @@ const HomePage: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold">👰‍♀️ Bride {WEDDING_INFO.bride.name}</h3>
-              <p className="text-gray-500">First daughter of {WEDDING_INFO.bride.father.name} & {WEDDING_INFO.bride.mother.name}</p>
+              <p className="text-gray-500">Eldest daughter of {WEDDING_INFO.bride.father.name} & {WEDDING_INFO.bride.mother.name}</p>
               {/* <p className="text-gray-700 mt-2">연락처: 010-xxxx-xxxx</p> */}
             </div>
           </div>
@@ -206,7 +210,7 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-center mb-8">EVENT INFO</h2>
           <div className="text-center">
 
-            <p className="text-lg font-semibold mb-2">{WEDDING_INFO.date} (일) {WEDDING_INFO.time}</p>
+            <p className="text-lg font-semibold mb-2">{WEDDING_INFO.dateFormatted} {WEDDING_INFO.time}</p>
             <p className="text-gray-700 mb-4">{WEDDING_INFO.venue}</p>
             {/* <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
               지도 영역 (나중에 추가)
@@ -230,14 +234,14 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className='flex justify-center mb-4 md:flex-row md:gap-4'> {/* flex-col 제거, md:flex-row, md:gap-2 추가 */}
-              <Link href={"https://kko.kakao.com/NaE2tABAU_"} passHref target="_blank" rel="noopener noreferrer">
+              <Link href={"https://kko.kakao.com/w3UHqWs1kV"} passHref target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="mx-2 bg-yellow-300 text-gray-700 hover:bg-yellow-400"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
                   Kakao Map
                   <ExternalLink />
                 </Button>
               </Link>
 
-              <Link href={"https://naver.me/5z5I6K2Q"} passHref target="_blank" rel="noopener noreferrer">
+              <Link href={"https://naver.me/GI3JJPcU"} passHref target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="mx-2 text-gray-700 bg-green-400 hover:bg-green-500"> {/* w-full 유지, md:w-auto, mx-2 추가 */}
                   Naver Map
                   <ExternalLink />
@@ -263,18 +267,18 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-center mb-8">GALLERY</h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 mb-8">
             {[
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
+              '/images/gallery-image5.jpeg',
+              '/images/gallery-image6.jpeg',
+              '/images/gallery-image7.jpeg',
+              '/images/gallery-image8.jpeg',
+              '/images/gallery-image9.jpeg',
+              '/images/gallery-image10.jpeg',
+              '/images/gallery-image2.jpeg',
+              '/images/gallery-image4.jpeg',
+              '/images/gallery-image11.jpeg',
               '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg'
+              '/images/gallery-image12.jpeg',
+              '/images/gallery-image1.jpeg',
             ].slice(0, visibleImages).map((src, index) => (
               <Dialog key={index}>
                 <DialogTrigger className="cursor-pointer">
@@ -415,8 +419,12 @@ const HomePage: React.FC = () => {
         </section>
         <Separator /> {/* 구분선 */}
         {/* 6. 계좌 정보 */}
-        <AccountSection />
-        <Separator /> {/* 구분선 */}
+         {/* 
+         <AccountSection /> 
+         */}
+         {/* 
+        <Separator /> 
+        */}
         {/* 7. 감사메시지 & 공유 섹션 */}
         <section className="py-16 px-6 md:px-12">
           <h2 className="text-2xl font-bold text-center mb-8">Thank You Message</h2>

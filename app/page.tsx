@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
       content: {
         title: '최혁 💍 이예린 결혼합니다', // 공유할 제목 (청첩장 제목)
         description: '2025년 09월 14일, 아름다운 날 결혼합니다.', // 공유할 설명
-        imageUrl: `${window.location.origin}/first.jpg`, // 대표 이미지 주소 (썸네일)
+        imageUrl: `${window.location.origin}/images/gallery-image6.jpeg`, // 대표 이미지 주소 (썸네일)
         link: {
           mobileWebUrl: window.location.href, // 모바일 웹 URL (청첩장 주소)
           webUrl: window.location.href, // PC 웹 URL (청첩장 주소)
@@ -144,7 +144,7 @@ const HomePage: React.FC = () => {
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">We&apos;re </h1>
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4">getting married!</h1>
             <Image 
-              src="/first.jpg" 
+              src="/images/gallery-image6.jpeg" 
               alt="신랑&신부 이미지" 
               width={500}
               height={300}
@@ -171,7 +171,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
-                  src="/images/gallery-image2.jpg" 
+                  src="/images/groom.jpeg" 
                   alt="신랑 이미지" 
                   width={128}
                   height={128}
@@ -185,7 +185,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
                 <Image 
-                  src="/images/gallery-image3.jpeg"
+                  src="/images/bride.jpeg"
                   alt="신부 이미지" 
                   width={128}
                   height={128}
@@ -264,18 +264,18 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-center mb-8">GALLERY</h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 mb-8">
             {[
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
+              '/images/gallery-image5.jpeg',
+              '/images/gallery-image6.jpeg',
+              '/images/gallery-image7.jpeg',
+              '/images/gallery-image8.jpeg',
+              '/images/gallery-image9.jpeg',
+              '/images/gallery-image10.jpeg',
+              '/images/gallery-image2.jpeg',
+              '/images/gallery-image4.jpeg',
+              '/images/gallery-image11.jpeg',
               '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg',
-              '/images/gallery-image1.jpg',
-              '/images/gallery-image2.jpg',
-              '/images/gallery-image3.jpeg'
+              '/images/gallery-image12.jpeg',
+              '/images/gallery-image1.jpeg',
             ].slice(0, visibleImages).map((src, index) => (
               <Dialog key={index}>
                 <DialogTrigger className="cursor-pointer">
