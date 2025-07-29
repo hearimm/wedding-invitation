@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
     navigator.clipboard.writeText(WEDDING_INFO.address)
     toast(WEDDING_INFO.address + " Address Copied !")
   }
-  
+
   const handleShareKakao = () => {
     if (!window.Kakao) {
       navigator.clipboard.writeText(window.location.href)
@@ -127,32 +127,28 @@ const HomePage: React.FC = () => {
         <title>최혁 💍 이예린 결혼합니다</title>
         <meta name="description" content="최혁 💍 이예린 결혼식에 초대합니다." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        {/* 모바일 최적화 viewport 설정 */}
       </Head>
 
       <div className="font-sans antialiased text-gray-900 bg-green-50 min-h-screen">
-        {/* 전체 배경 및 기본 스타일 */}
 
-        {/* 1. Hero 섹션 (메인 이미지, 신랑/신부 이름, 날짜) */}
         <section className="relative py-5 md:py-32 bg-cover bg-center" style={{ backgroundImage: `url('/images/hero-image.jpg')` }}>
 
-          {/* 배경 오버레이 (흰색 20% 투명도) */}
+          {/* 배경 오버레이 */}
           <div className="absolute inset-0 bg-white"></div>
-          
-          {/* 텍스트 컨테이너 (검정색 폰트) */}
-          <div className="relative z-10 text-center text-black">
+          <div className="relative z-10 text-center text-black lg:max-w-5xl lg:mx-auto">
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4 font-brush">We&apos;re getting married!</h1>
-            <Image 
-              src="/images/gallery-image1.webp" 
-              alt="신랑&신부 이미지" 
+            <Image
+              src="/images/gallery-image1.webp"
+              alt="신랑&신부 이미지"
               width={500}
               height={300}
-              className="object-cover w-full h-full" 
+              className="object-cover w-full h-full"
             />
             <p className='font-bold'>{WEDDING_INFO.groom.name} 💍 {WEDDING_INFO.bride.name}</p>
             <p className="text-md md:text-lg mt-2">{WEDDING_INFO.date}, 일요일 {WEDDING_INFO.time}</p>
             <p className="text-md md:text-lg mt-2">{WEDDING_INFO.venue}</p>
           </div>
+
         </section>
 
         {/* 2. 신랑 신부 소개 섹션 */}
@@ -169,12 +165,12 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
-                <Image 
-                  src="/images/groom.jpeg" 
-                  alt="신랑 이미지" 
+                <Image
+                  src="/images/groom.jpeg"
+                  alt="신랑 이미지"
                   width={128}
                   height={128}
-                  className="object-cover w-full h-full" 
+                  className="object-cover w-full h-full"
                 />
               </div>
               <h3 className="text-xl font-semibold">🤵 신랑 {WEDDING_INFO.groom.name}</h3>
@@ -183,12 +179,12 @@ const HomePage: React.FC = () => {
             </div>
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-4 mx-auto">
-                <Image 
+                <Image
                   src="/images/bride.jpeg"
-                  alt="신부 이미지" 
+                  alt="신부 이미지"
                   width={128}
                   height={128}
-                  className="object-cover w-full h-full" 
+                  className="object-cover w-full h-full"
                 />
               </div>
               <h3 className="text-xl font-semibold">👰‍♀️ 신부 {WEDDING_INFO.bride.name}</h3>
@@ -220,10 +216,10 @@ const HomePage: React.FC = () => {
                   </Button>
                 </Link>
 
-              <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
-                주소 복사
-                <Copy />
-              </Button>
+                <Button variant="outline" className="w-full mb-4" onClick={handleAddrCopy}>
+                  주소 복사
+                  <Copy />
+                </Button>
 
               </div>
             </div>
@@ -263,23 +259,23 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 mb-8">
             {[
               '/images/gallery-image2.webp'
-              ,'/images/gallery-image3.webp'
-              ,'/images/gallery-image4.webp'
-              ,'/images/gallery-image5.webp'
-              ,'/images/gallery-image6.webp'
-              ,'/images/gallery-image7.webp'
-              ,'/images/gallery-image8.webp'
-              ,'/images/gallery-image9.webp'
-              ,'/images/gallery-image10.webp'
-              ,'/images/gallery-image11.webp'
-              ,'/images/gallery-image12.webp'
-              ,'/images/gallery-image13.webp'
+              , '/images/gallery-image3.webp'
+              , '/images/gallery-image4.webp'
+              , '/images/gallery-image5.webp'
+              , '/images/gallery-image6.webp'
+              , '/images/gallery-image7.webp'
+              , '/images/gallery-image8.webp'
+              , '/images/gallery-image9.webp'
+              , '/images/gallery-image10.webp'
+              , '/images/gallery-image11.webp'
+              , '/images/gallery-image12.webp'
+              , '/images/gallery-image13.webp'
             ].slice(0, visibleImages).map((src, index) => (
               <Dialog key={index}>
                 <DialogTrigger className="cursor-pointer">
-                  <Image 
-                    src={src} 
-                    alt={`갤러리 이미지 ${index + 1}`} 
+                  <Image
+                    src={src}
+                    alt={`갤러리 이미지 ${index + 1}`}
                     width={300}
                     height={192}
                     className="w-full h-48 rounded-md object-cover"
@@ -288,8 +284,8 @@ const HomePage: React.FC = () => {
                 <DialogContent className="max-w-2xl">
                   <DialogTitle></DialogTitle>
                   <div className="relative w-full h-[70vh] flex justify-center">
-                    <Image 
-                      src={src} 
+                    <Image
+                      src={src}
                       alt={`확대 이미지 ${index + 1}`}
                       layout="fill"
                       objectFit="contain"
@@ -304,8 +300,8 @@ const HomePage: React.FC = () => {
           {/* Show More 버튼 */}
           {visibleImages < 12 && (
             <div className="flex justify-center">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setVisibleImages(prev => prev + 6)}
                 className="mt-4"
               >
@@ -324,7 +320,7 @@ const HomePage: React.FC = () => {
               참석 여부를 알려주시면<br />
               준비에 큰 도움이 됩니다.
             </p>
-            
+
             {/* RSVP 다이얼로그 */}
             <Dialog>
               <DialogTrigger asChild>
@@ -337,22 +333,22 @@ const HomePage: React.FC = () => {
                   참석 확인
                 </DialogTitle>
                 <div className="p-4">
-                <iframe
-                  src={`https://docs.google.com/forms/d/e/${process.env.NEXT_PUBLIC_GOOGLE_FORM_ID}/viewform?embedded=true`}
-                  width="100%"
-                  height="500"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  title="RSVP Form"
-                  className="rounded-lg shadow-lg"
-                />
+                  <iframe
+                    src={`https://docs.google.com/forms/d/e/${process.env.NEXT_PUBLIC_GOOGLE_FORM_ID}/viewform?embedded=true`}
+                    width="100%"
+                    height="500"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="RSVP Form"
+                    className="rounded-lg shadow-lg"
+                  />
                 </div>
               </DialogContent>
             </Dialog>
           </div>
         </section>
-        
+
         {/* 5. LOCATION */}
 
         {/* 5. 축하 메시지 & 연락처 섹션 */}
@@ -430,12 +426,12 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
             <div className="text-center">
               <Button className='w-full mb-4 bg-yellow-300 text-gray-700 hover:bg-yellow-400'
-              onClick={() => handleShareKakao()}
-              >카카오톡으로 청첩장 전하기<MessageSquareShare/></Button>
+                onClick={() => handleShareKakao()}
+              >카카오톡으로 청첩장 전하기<MessageSquareShare /></Button>
               <Button variant="outline"
-              className='w-full mb-4'
-              onClick={() => handleUrlCopy()}
-              >청첩장 주소 복사하기<Copy/></Button>
+                className='w-full mb-4'
+                onClick={() => handleUrlCopy()}
+              >청첩장 주소 복사하기<Copy /></Button>
             </div>
           </div>
         </section>
