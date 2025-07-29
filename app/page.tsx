@@ -159,12 +159,12 @@ const HomePage: React.FC = () => {
         <section className="py-16 px-6 md:px-12">
           <h2 className="text-2xl font-bold text-center mb-8">INVITATION</h2>
           <p className="text-center text-lg leading-relaxed mb-8">
-            🍁곱게 물든 단풍으로 가득 찬 가을날🍁<br />
-            저희도 서로에게 물들어 <br />
-            평생 함께하고자 합니다.<br /><br />
-            서로 다른 색으로 만났지만<br />
-            앞으로 서로에게 어울리는 색이 되도록<br />
-            사랑하고 배려하며 살겠습니다. 💍
+            🍁곱게 물든 단풍으로 가득한 가을날🍁<br />
+            저희도 서로의 마음에 물들어 <br />
+            평생을 함께하고자 합니다.<br /><br />
+            서로 다른 빛깔로 만난 저희가<br />
+            이제 하나의 아름다운 색을 만들어가며<br />
+            사랑하고 배려하며 살아가겠습니다. 💍
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             <div className="text-center">
@@ -197,7 +197,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-
         <Separator /> {/* 구분선 */}
 
 
