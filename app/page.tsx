@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
       content: {
         title: '최혁 💍 이예린 결혼합니다', // 공유할 제목 (청첩장 제목)
         description: '2025년 09월 14일, 아름다운 날 결혼합니다.', // 공유할 설명
-        imageUrl: `${window.location.origin}/images/gallery-image6.jpeg`, // 대표 이미지 주소 (썸네일)
+        imageUrl: `${window.location.origin}/images/gallery-image1.webp`, // 대표 이미지 주소 (썸네일)
         link: {
           mobileWebUrl: window.location.href, // 모바일 웹 URL (청첩장 주소)
           webUrl: window.location.href, // PC 웹 URL (청첩장 주소)
@@ -143,7 +143,7 @@ const HomePage: React.FC = () => {
           <div className="relative z-10 text-center text-black">
             <h1 className="text-4xl text-left ml-5 md:text-5xl font-bold mb-4 font-brush">We&apos;re getting married!</h1>
             <Image 
-              src="/images/gallery-image6.jpeg" 
+              src="/images/gallery-image1.webp" 
               alt="신랑&신부 이미지" 
               width={500}
               height={300}
@@ -263,18 +263,18 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-center mb-8">GALLERY</h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 mb-8">
             {[
-              '/images/gallery-image5.jpeg',
-              '/images/gallery-image6.jpeg',
-              '/images/gallery-image7.jpeg',
-              '/images/gallery-image8.jpeg',
-              '/images/gallery-image9.jpeg',
-              '/images/gallery-image10.jpeg',
-              '/images/gallery-image2.jpeg',
-              '/images/gallery-image4.jpeg',
-              '/images/gallery-image11.jpeg',
-              '/images/gallery-image3.jpeg',
-              '/images/gallery-image12.jpeg',
-              '/images/gallery-image1.jpeg',
+              '/images/gallery-image2.webp'
+              ,'/images/gallery-image3.webp'
+              ,'/images/gallery-image4.webp'
+              ,'/images/gallery-image5.webp'
+              ,'/images/gallery-image6.webp'
+              ,'/images/gallery-image7.webp'
+              ,'/images/gallery-image8.webp'
+              ,'/images/gallery-image9.webp'
+              ,'/images/gallery-image10.webp'
+              ,'/images/gallery-image11.webp'
+              ,'/images/gallery-image12.webp'
+              ,'/images/gallery-image13.webp'
             ].slice(0, visibleImages).map((src, index) => (
               <Dialog key={index}>
                 <DialogTrigger className="cursor-pointer">

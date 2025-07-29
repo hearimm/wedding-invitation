@@ -25,7 +25,7 @@ const groomAccounts: Account[] = [
 
 const brideAccounts: Account[] = [
     { label: "신부", name:'이예린', bank: "카카오뱅크", number: "3333-03-3732016" },
-    { label: "아버지", name:'이승기', bank: "농협", number: "351-0601-5714-13" },
+    { label: "아버지", name:'이승기', bank: "농협", number: "205812-52-029462" },
   ]
 
 export function AccountSection() {
