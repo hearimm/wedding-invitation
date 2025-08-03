@@ -351,63 +351,6 @@ const HomePage: React.FC = () => {
 
         {/* 5. LOCATION */}
 
-        {/* 5. 축하 메시지 & 연락처 섹션 */}
-        <section className="py-16 px-6 md:px-12">
-          <h2 className="text-2xl font-bold text-center mb-8">축하 메시지 & 연락처</h2>
-          <p className="text-center text-gray-700 mb-8">
-            따뜻한 마음 남겨주시면<br />
-            결혼 후에도 오래도록 간직하겠습니다.
-          </p>
-          <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">신랑 측 연락처</h3>
-              <div className="flex flex-col items-center gap-2">
-                {contactInfo.groom.contacts.map((contact, index) => (
-                  contact.phone && contact.phone.includes('-') ? (
-                    <a
-                      key={index}
-                      className="inline-flex items-center gap-1.5 text-gray-700 hover:text-blue-600 transition-colors"
-                      href={formatSmsLink(contact.phone)}
-                    >
-                      <span>{`${contact.name}: ${contact.phone}`}</span>
-                      <MessageSquareText size={16} />
-                    </a>
-                  ) : (
-                    <span key={index} className="text-gray-700">
-                      {`${contact.relationship}: ${contact.name}`}
-                    </span>
-                  )
-                ))}
-              </div>
-            </div>
-            <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">신부 측 연락처</h3>
-              <div className="flex flex-col items-center gap-2">
-                {contactInfo.bride.contacts.map((contact, index) => (
-                  contact.phone && contact.phone.includes('-') ? (
-                    <a
-                      key={index}
-                      className="inline-flex items-center gap-1.5 text-gray-700 hover:text-blue-600 transition-colors"
-                      href={formatSmsLink(contact.phone)}
-                    >
-                      <span>{`${contact.name}: ${contact.phone}`}</span>
-                      <MessageSquareText size={16} />
-                    </a>
-                  ) : (
-                    <span key={index} className="text-gray-700">
-                      {`${contact.relationship}: ${contact.name}`}
-                    </span>
-                  )
-                ))}
-              </div>
-            </div>
-          </div>
-          {/* <div className="mt-8 text-center">
-            <Button>
-              축하 메시지 남기기
-            </Button>
-          </div> */} {/* 필요에 따라 축하 메시지 남기기 기능 추가 (Form, Backend 연동 등) */}
-        </section>
         <Separator /> {/* 구분선 */}
         {/* 6. 계좌 정보 */}
         <AccountSection />
