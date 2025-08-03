@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button'; // Shadcn Button 컴포넌트 예시 (필요한 컴포넌트 import)
 import { Separator } from '@/components/ui/separator'; // Shadcn Separator 컴포넌트 예시
-import { Copy, MessageSquareShare, ChevronDown, ExternalLink, MessageSquareText } from "lucide-react"
+import { Copy, MessageSquareShare, ChevronDown, ExternalLink } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -44,32 +44,32 @@ const WEDDING_INFO = {
   address: "경기도 수원시 팔달구 월드컵로 310 (구. 우만동 209번지)"
 } as const;
 
-const contactInfo = {
-  groom: {
-    title: "신랑 측 연락처",
-    contacts: [
-      { name: WEDDING_INFO.groom.name, relationship: "신랑", phone: WEDDING_INFO.groom.phone },
-      { name: WEDDING_INFO.groom.mother.name, relationship: "모", phone: WEDDING_INFO.groom.mother.phone },
-    ],
-  },
-  bride: {
-    title: "신부 측 연락처",
-    contacts: [
-      { name: WEDDING_INFO.bride.name, relationship: "신부", phone: WEDDING_INFO.bride.phone },
-      { name: WEDDING_INFO.bride.father.name, relationship: "부", phone: WEDDING_INFO.bride.father.phone },
-      { name: WEDDING_INFO.bride.mother.name, relationship: "모", phone: WEDDING_INFO.bride.mother.phone },
-    ],
-  },
-};
+// const contactInfo = {
+//   groom: {
+//     title: "신랑 측 연락처",
+//     contacts: [
+//       { name: WEDDING_INFO.groom.name, relationship: "신랑", phone: WEDDING_INFO.groom.phone },
+//       { name: WEDDING_INFO.groom.mother.name, relationship: "모", phone: WEDDING_INFO.groom.mother.phone },
+//     ],
+//   },
+//   bride: {
+//     title: "신부 측 연락처",
+//     contacts: [
+//       { name: WEDDING_INFO.bride.name, relationship: "신부", phone: WEDDING_INFO.bride.phone },
+//       { name: WEDDING_INFO.bride.father.name, relationship: "부", phone: WEDDING_INFO.bride.father.phone },
+//       { name: WEDDING_INFO.bride.mother.name, relationship: "모", phone: WEDDING_INFO.bride.mother.phone },
+//     ],
+//   },
+// };
 
 // 전화번호를 SMS 링크 형식으로 변환하는 헬퍼 함수
-const formatSmsLink = (phone: string): string => {
-  const cleaned = phone.replace(/-/g, ""); // 하이픈(-) 제거
-  if (cleaned.startsWith("010")) {
-    return `sms:+82${cleaned.substring(1)}`; // '010'을 '+8210'으로 변경
-  }
-  return `sms:${cleaned}`;
-};
+// const formatSmsLink = (phone: string): string => {
+//   const cleaned = phone.replace(/-/g, ""); // 하이픈(-) 제거
+//   if (cleaned.startsWith("010")) {
+//     return `sms:+82${cleaned.substring(1)}`; // '010'을 '+8210'으로 변경
+//   }
+//   return `sms:${cleaned}`;
+// };
 
 
 const HomePage: React.FC = () => {
